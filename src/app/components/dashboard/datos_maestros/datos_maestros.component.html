@@ -1,0 +1,37 @@
+<div class="container">
+  <br><br>
+  <h1>CATALOGOS ACTIVOS</h1>
+  <br><br>
+  <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
+
+  <ng-container *ngIf="!loading">
+    <ng-container *ngFor="let categoria of getKeys(catalogosPorCategoria)">
+      <h2>{{ categoria }}</h2>
+
+      <table class="table border-primary table-hover">
+        <thead>
+          <tr class="table-primary">
+            <th scope="col">No.</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Última Actualización</th>
+            <th scope="col">Descargar</th>
+            <th scope="col">Instructivo</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let catalogo of catalogosPorCategoria[categoria]" (click)="editarCatalogo(catalogo.idcatalogo)" class="table-info">
+            <th scope="row">{{ catalogo.idcatalogo }}</th>
+            <td>{{ catalogo.nombre }}</td>
+            <td>{{ catalogo.descripcion }}</td>
+            <td>{{ catalogo.updated_at }}</td>
+            <td><img src="..\..\assets\img\icon\file-earmark-excel.svg" alt="Imagen SVG"> .xlsx</td>
+            <td><img src="..\..\assets\img\icon\file-earmark-excel.svg" alt="Imagen SVG"> .pdf</td>
+          </tr>
+        </tbody>
+      </table>
+      <br><br>
+    </ng-container>
+  </ng-container>
+</div>

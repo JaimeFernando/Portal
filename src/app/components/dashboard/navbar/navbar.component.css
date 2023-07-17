@@ -1,0 +1,9 @@
+.example-spacer-footer {
+    flex: 1 1 auto;
+  }
+
+  .footer{
+    background-color: #E4ECFA;
+    flex: 1 1 auto;
+    color: #142392;
+  }
